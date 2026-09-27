@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pide tu muestra · scrink</title>
+<meta name="description" content="Muestra gratis del marcador borrable recargable scrink para colegios, universidades, docentes, coaches y coworkings.">
+<meta property="og:title" content="Pide tu muestra gratis · scrink">
+<meta property="og:description" content="El marcador borrable que se recarga. Para colegios, universidades, docentes, coaches y coworkings.">
+<meta property="og:image" content="https://opalstudioeventos-ai.github.io/muestra-scrink/assets/tinta_w100.jpg">
+<meta name="theme-color" content="#1D1D1B">
+<link rel="icon" href="assets/logo_scrink.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --ink:#1D1D1B; --paper:#ffffff; --bg:#faf7f1;
+  --kraft:#C8A97E; --kraft-soft:#F3ECE0; --kraft-dark:#8a6a3f;
+  --red:#E30613; --green:#009640;
+  --muted:#6f695e; --line:#e6ddcc;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  font-size:16px; line-height:1.5; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:520px; margin:0 auto; padding:0 16px 40px}
+
+/* Cabecera */
+header{padding:20px 0 6px; display:flex; flex-direction:column; align-items:center; gap:6px}
+header .scrink{height:34px; width:auto}
+header .by{display:flex; align-items:center; gap:7px; font-size:11.5px; color:var(--muted); letter-spacing:.02em}
+header .by img{height:17px; width:auto; display:block}
+.hero{
+  margin-top:10px; background:var(--paper); border-radius:20px; overflow:hidden;
+  box-shadow:0 1px 0 var(--line), 0 10px 30px -18px rgba(29,29,27,.35);
+}
+.hero-img{background:#fff}
+.hero-img img{width:100%; height:auto; display:block}
+.hero-img .ink{aspect-ratio:900/581; object-fit:cover}
+.hero-img .pen{border-top:1px solid var(--line); padding:4px 10px 0}
+.hero-txt{padding:20px 20px 22px}
+.tag{
+  display:inline-block; font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--kraft-dark); background:var(--kraft-soft); padding:4px 10px; border-radius:99px;
+}
+h1{font-size:26px; line-height:1.2; margin:12px 0 8px; font-weight:700; letter-spacing:-.01em}
+h1 em{font-style:normal; color:var(--red)}
+.lead{margin:0; color:var(--muted); font-size:15px}
+.perks{display:flex; flex-wrap:wrap; gap:6px 14px; margin:14px 0 0; padding:0; list-style:none; font-size:13.5px; font-weight:500}
+.perks li::before{content:"✓"; color:var(--green); font-weight:700; margin-right:6px}
+
+/* Formulario */
+form{margin-top:18px; background:var(--paper); border-radius:20px; padding:22px 20px 24px;
+  box-shadow:0 1px 0 var(--line)}
+.field{margin-bottom:16px}
+label,.label{display:block; font-weight:600; font-size:14.5px; margin-bottom:6px}
+.opt{font-weight:400; color:var(--muted); font-size:13px}
+input[type=text],input[type=tel],input[type=email]{
+  width:100%; font:inherit; font-size:16px; color:var(--ink); background:#fff;
+  border:1.5px solid var(--line); border-radius:12px; padding:12px 14px; outline:none;
+  transition:border-color .15s, box-shadow .15s;
+}
+input:focus{border-color:var(--ink); box-shadow:0 0 0 3px rgba(200,169,126,.35)}
+input.bad{border-color:var(--red)}
+.hint{font-size:12.5px; color:var(--muted); margin-top:5px}
+.err{font-size:12.5px; color:var(--red); margin-top:5px; display:none}
+.err.on{display:block}
+
+.chips{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+.chips input{position:absolute; opacity:0; pointer-events:none}
+.chips label{
+  margin:0; font-weight:500; font-size:14px; text-align:center; cursor:pointer;
+  border:1.5px solid var(--line); border-radius:12px; padding:11px 8px; background:#fff;
+  transition:all .15s; user-select:none;
+}
+.chips input:checked+label{background:var(--ink); border-color:var(--ink); color:#fff}
+.chips input:focus-visible+label{box-shadow:0 0 0 3px rgba(200,169,126,.55)}
+.chips.bad label{border-color:var(--red)}
+
+.consent{display:flex; gap:10px; align-items:flex-start; font-size:13px; color:var(--muted); margin:6px 0 4px}
+.consent input{width:20px; height:20px; margin:1px 0 0; flex:none; accent-color:var(--ink)}
+.consent label{font-weight:400; font-size:13px; margin:0; color:var(--muted)}
+details{font-size:12.5px; color:var(--muted); margin:4px 0 0 30px}
+details summary{cursor:pointer; text-decoration:underline}
+details p{margin:6px 0 0}
+
+.hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
+
+button{
+  width:100%; margin-top:18px; font:inherit; font-size:16.5px; font-weight:700; letter-spacing:.01em;
+  color:#fff; background:var(--ink); border:0; border-radius:14px; padding:15px; cursor:pointer;
+  transition:transform .1s, opacity .15s;
+}
+button:active{transform:scale(.99)}
+button[disabled]{opacity:.6; cursor:wait}
+.note{text-align:center; font-size:12.5px; color:var(--muted); margin-top:10px}
+.formerr{display:none; margin-top:12px; padding:10px 12px; border-radius:10px; background:#fdecec; color:#9c0a12; font-size:13.5px}
+.formerr.on{display:block}
+
+/* Gracias */
+.done{display:none; margin-top:18px; background:var(--paper); border-radius:20px; padding:32px 22px; text-align:center}
+.done.on{display:block}
+.done .ok{width:56px; height:56px; border-radius:50%; background:var(--green); color:#fff; font-size:28px;
+  display:grid; place-items:center; margin:0 auto 14px}
+.done h2{margin:0 0 8px; font-size:22px}
+.done p{margin:0 auto; color:var(--muted); max-width:340px}
+.done a{display:inline-block; margin-top:18px; color:var(--ink); font-weight:600}
+
+footer{text-align:center; font-size:12px; color:var(--muted); margin-top:26px}
+footer a{color:inherit}
+@media (max-width:360px){ h1{font-size:23px} .chips label{font-size:13px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="scrink" src="assets/logo_scrink.png" alt="scrink">
+    <span class="by">una marca de <img src="assets/logo_scriba.png" alt="scriba S.A.S."></span>
+  </header>
+
+  <section class="hero">
+    <div class="hero-img">
+      <img class="ink" src="assets/tinta_w100.jpg" alt="Tintas de recarga scrink W100 en verde, negro, rojo y azul">
+      <img class="pen" src="assets/marcador_w45.jpg" alt="Marcador borrable scrink W45">
+    </div>
+    <div class="hero-txt">
+      <span class="tag">Muestra gratis</span>
+      <h1>El marcador borrable que <em>se recarga</em></h1>
+      <p class="lead">Para colegios, universidades, docentes, coaches y coworkings. Déjanos tus datos y te enviamos una muestra para que lo pruebes en tu tablero.</p>
+      <ul class="perks">
+        <li>Ahorras recargando</li>
+        <li>Menos plástico</li>
+        <li>Colores intensos</li>
+      </ul>
+    </div>
+  </section>
+
+  <form id="f" novalidate>
+    <div class="field">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+      <div class="err">Escribe tu nombre.</div>
+    </div>
+
+    <div class="field">
+      <label for="telefono">WhatsApp</label>
+      <input id="telefono" name="telefono" type="tel" inputmode="numeric" autocomplete="tel" placeholder="300 123 4567" required>
+      <div class="hint">Por aquí coordinamos el envío.</div>
+      <div class="err">Escribe tu WhatsApp de 10 dígitos.</div>
+    </div>
+
+    <div class="field">
+      <label for="correo">Correo <span class="opt">(opcional)</span></label>
+      <input id="correo" name="correo" type="email" autocomplete="email" inputmode="email">
+      <div class="err">Revisa el correo.</div>
+    </div>
+
+    <div class="field">
+      <label for="ciudad">Ciudad</label>
+      <input id="ciudad" name="ciudad" type="text" autocomplete="address-level2" required>
+      <div class="err">Escribe tu ciudad.</div>
+    </div>
+
+    <div class="field" id="perfilField">
+      <span class="label" id="perfilLbl">¿Dónde usarías scrink?</span>
+      <div class="chips" role="radiogroup" aria-labelledby="perfilLbl">
+        <input type="radio" name="perfil" id="p1" value="Colegio"><label for="p1">Colegio</label>
+        <input type="radio" name="perfil" id="p2" value="Universidad"><label for="p2">Universidad</label>
+        <input type="radio" name="perfil" id="p3" value="Instituto o academia"><label for="p3">Instituto o academia</label>
+        <input type="radio" name="perfil" id="p4" value="Coworking"><label for="p4">Coworking</label>
+        <input type="radio" name="perfil" id="p5" value="Docente o tutor"><label for="p5">Soy docente o tutor</label>
+        <input type="radio" name="perfil" id="p6" value="Coach o formador"><label for="p6">Soy coach o formador</label>
+        <input type="radio" name="perfil" id="p7" value="Otro"><label for="p7" style="grid-column:1/-1">Otro</label>
+      </div>
+      <div class="err">Elige una opción.</div>
+    </div>
+
+    <div class="field">
+      <label for="institucion" id="instLbl">Nombre de tu institución o espacio <span class="opt">(opcional)</span></label>
+      <input id="institucion" name="institucion" type="text" autocomplete="organization">
+    </div>
+
+    <div class="field">
+      <label for="direccion">Dirección para enviarte la muestra</label>
+      <input id="direccion" name="direccion" type="text" autocomplete="street-address" placeholder="Calle, número, barrio o sede" required>
+      <div class="err">Escribe la dirección de envío.</div>
+    </div>
+
+    <div class="hp" aria-hidden="true">
+      <label for="web">No llenar</label><input id="web" name="web" type="text" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="field" style="margin-bottom:0">
+      <div class="consent">
+        <input type="checkbox" id="autoriza" name="autoriza" required>
+        <label for="autoriza">Autorizo a Scriba S.A.S. a tratar mis datos para enviarme la muestra y contactarme con información de sus productos.</label>
+      </div>
+      <details>
+        <summary>Ver tratamiento de datos</summary>
+        <p>Scriba S.A.S. (NIT 902.014.588, Rionegro, Antioquia) es responsable de tus datos conforme a la Ley 1581 de 2012. Los usaremos para gestionar el envío de la muestra y el contacto comercial sobre nuestros productos; no los vendemos a terceros. Puedes conocer, actualizar, rectificar o pedir la supresión de tus datos escribiendo a ccortes@scrink.com.co. <a href="politica-datos.html" target="_blank" rel="noopener">Lee la política completa</a>.</p>
+      </details>
+      <div class="err" id="autErr" style="margin-left:30px">Necesitamos tu autorización para enviarte la muestra.</div>
+    </div>
+
+    <button type="submit" id="btn">Quiero mi muestra</button>
+    <div class="formerr" id="formErr"></div>
+    <p class="note">Toma menos de un minuto · Una muestra por institución o espacio</p>
+  </form>
+
+  <section class="done" id="done" aria-live="polite">
+    <div class="ok">✓</div>
+    <h2 id="doneTitle">¡Listo, gracias!</h2>
+    <p id="doneMsg">Te escribiremos por WhatsApp en menos de 48 horas para coordinar el envío de tu muestra.</p>
+    <a href="https://www.instagram.com/scriba_sas/" rel="noopener">Síguenos en Instagram @scriba_sas</a>
+  </section>
+
+  <footer>scrink · Scriba S.A.S. · Rionegro, Antioquia · <a href="https://www.scrink.com.co" rel="noopener">scrink.com.co</a><br><a href="politica-datos.html">Política de tratamiento de datos</a></footer>
+</div>
+
+<script>
+// URL de la Web App de Apps Script (termina en /exec). Es la misma que usa la App Comercial.
+const API_URL = 'https://script.google.com/macros/s/AKfycbz9pZsi4p_aHne5dLz3ZDgQz6X15wf6JpETs7MnX2rIiCHzmXrGt7gC3PqbapZadMKZ/exec';
+
+const f = document.getElementById('f');
+const btn = document.getElementById('btn');
+const formErr = document.getElementById('formErr');
+const fuente = new URLSearchParams(location.search).get('f') || 'Instagram';
+
+const instLbl = document.getElementById('instLbl');
+f.querySelectorAll('input[name=perfil]').forEach(r => r.addEventListener('change', () => {
+  const v = f.perfil.value;
+  const t = { 'Colegio': 'Nombre del colegio', 'Universidad': 'Nombre de la universidad',
+              'Instituto o academia': 'Nombre del instituto o academia', 'Coworking': 'Nombre del coworking',
+              'Otro': '¿Cuál?' }[v] || '¿Dónde enseñas o trabajas?';
+  instLbl.innerHTML = t + ' <span class="opt">(opcional)</span>';
+  document.getElementById('perfilField').querySelector('.chips').classList.remove('bad');
+  document.getElementById('perfilField').querySelector('.err').classList.remove('on');
+}));
+
+function soloDigitos(s){ let d = s.replace(/\D/g, ''); if (d.length === 12 && d.startsWith('57')) d = d.slice(2); return d; }
+
+function marcar(input, ok){
+  input.classList.toggle('bad', !ok);
+  const e = input.closest('.field').querySelector('.err');
+  if (e) e.classList.toggle('on', !ok);
+  return ok;
+}
+f.querySelectorAll('input[type=text],input[type=tel],input[type=email]').forEach(i =>
+  i.addEventListener('input', () => { if (i.classList.contains('bad')) marcar(i, true); }));
+
+function validar(){
+  let ok = true, primero = null;
+  const chk = (el, cond) => { if (!marcar(el, cond)) { ok = false; primero = primero || el; } };
+  chk(f.nombre, f.nombre.value.trim().length >= 2);
+  chk(f.telefono, soloDigitos(f.telefono.value).length === 10);
+  chk(f.correo, !f.correo.value.trim() || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.correo.value.trim()));
+  chk(f.ciudad, f.ciudad.value.trim().length >= 2);
+  const perfilOk = !!f.perfil.value;
+  const pf = document.getElementById('perfilField');
+  pf.querySelector('.chips').classList.toggle('bad', !perfilOk);
+  pf.querySelector('.err').classList.toggle('on', !perfilOk);
+  if (!perfilOk) { ok = false; primero = primero || pf; }
+  chk(f.direccion, f.direccion.value.trim().length >= 5);
+  const autOk = f.autoriza.checked;
+  document.getElementById('autErr').classList.toggle('on', !autOk);
+  if (!autOk) { ok = false; primero = primero || f.autoriza; }
+  if (primero) primero.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  return ok;
+}
+
+f.addEventListener('submit', async ev => {
+  ev.preventDefault();
+  formErr.classList.remove('on');
+  if (!validar()) return;
+  btn.disabled = true; btn.textContent = 'Enviando…';
+  const body = {
+    action: 'solicitarMuestra',
+    nombre: f.nombre.value.trim(),
+    telefono: soloDigitos(f.telefono.value),
+    correo: f.correo.value.trim(),
+    ciudad: f.ciudad.value.trim(),
+    perfil: f.perfil.value,
+    institucion: f.institucion.value.trim(),
+    direccion: f.direccion.value.trim(),
+    autoriza: f.autoriza.checked,
+    fuente: fuente,
+    web: f.web.value
+  };
+  try {
+    const res = await fetch(API_URL, { method: 'POST', body: JSON.stringify(body) });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    if (data.repetida) {
+      document.getElementById('doneTitle').textContent = '¡Ya tenemos tu solicitud!';
+      document.getElementById('doneMsg').textContent = 'Este WhatsApp ya está registrado. Te escribiremos muy pronto para coordinar tu muestra.';
+    }
+    f.style.display = 'none';
+    document.getElementById('done').classList.add('on');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } catch (e) {
+    formErr.textContent = 'No pudimos enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo, o escríbenos por Instagram @scriba_sas.';
+    formErr.classList.add('on');
+    btn.disabled = false; btn.textContent = 'Quiero mi muestra';
+  }
+});
+</script>
+</body>
+</html>
