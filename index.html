@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Pide tu muestra · scrink</title>
-<meta name="description" content="Muestra gratis del marcador borrable recargable scrink para colegios, universidades, docentes, coaches y coworkings.">
+<meta name="description" content="Muestra gratis del marcador borrable recargable scrink para colegios, universidades, docentes, coaches, coworkings, entre otros.">
 <meta property="og:title" content="Pide tu muestra gratis · scrink">
-<meta property="og:description" content="El marcador borrable que se recarga. Para colegios, universidades, docentes, coaches y coworkings.">
+<meta property="og:description" content="El marcador borrable que se recarga. Para colegios, universidades, docentes, coaches, coworkings, entre otros.">
 <meta property="og:image" content="https://opalstudioeventos-ai.github.io/muestra-scrink/assets/tinta_w100.jpg">
 <meta name="theme-color" content="#1D1D1B">
 <link rel="icon" href="assets/logo_scrink.png">
@@ -32,7 +32,7 @@ body{
 
 /* Cabecera */
 header{padding:20px 0 6px; display:flex; flex-direction:column; align-items:center; gap:6px}
-header .scrink{height:34px; width:auto}
+header .scrink{height:46px; width:auto}
 header .by{display:flex; align-items:center; gap:7px; font-size:11.5px; color:var(--muted); letter-spacing:.02em}
 header .by img{height:17px; width:auto; display:block}
 .hero{
@@ -131,7 +131,7 @@ footer a{color:inherit}
     <div class="hero-txt">
       <span class="tag">Muestra gratis</span>
       <h1>El marcador borrable que <em>se recarga</em></h1>
-      <p class="lead">Para colegios, universidades, docentes, coaches y coworkings. Déjanos tus datos y te enviamos una muestra para que lo pruebes en tu tablero.</p>
+      <p class="lead">Para colegios, universidades, docentes, coaches, coworkings, entre otros. Déjanos tus datos y te enviamos una muestra para que lo pruebes en tu tablero.</p>
       <ul class="perks">
         <li>Ahorras recargando</li>
         <li>Menos plástico</li>
@@ -155,9 +155,9 @@ footer a{color:inherit}
     </div>
 
     <div class="field">
-      <label for="correo">Correo <span class="opt">(opcional)</span></label>
-      <input id="correo" name="correo" type="email" autocomplete="email" inputmode="email">
-      <div class="err">Revisa el correo.</div>
+      <label for="correo">Correo</label>
+      <input id="correo" name="correo" type="email" autocomplete="email" inputmode="email" placeholder="tucorreo@ejemplo.com" required>
+      <div class="err">Escribe un correo válido.</div>
     </div>
 
     <div class="field">
@@ -258,7 +258,7 @@ function validar(){
   const chk = (el, cond) => { if (!marcar(el, cond)) { ok = false; primero = primero || el; } };
   chk(f.nombre, f.nombre.value.trim().length >= 2);
   chk(f.telefono, soloDigitos(f.telefono.value).length === 10);
-  chk(f.correo, !f.correo.value.trim() || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.correo.value.trim()));
+  chk(f.correo, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.correo.value.trim()));
   chk(f.ciudad, f.ciudad.value.trim().length >= 2);
   const perfilOk = !!f.perfil.value;
   const pf = document.getElementById('perfilField');
